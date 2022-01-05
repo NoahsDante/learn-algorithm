@@ -13,13 +13,9 @@ function selectionSort(arr) {
   // 2 ~ n-1  找到最小值，在哪，放到2 位置上
   for (let i = 0; i < arr.length - 1; i++) {
     let minIndex = i;
-    jsLog('minIndex0==========',minIndex)
     for (let j = i + 1; j < arr.length; j++) { // i ~ N-1 上找最小值的下标
-      jsLog('minIndex1=======',minIndex)
-      minIndex = arr[j] < arr[minIndex] ? j : minIndex;
-      jsLog('minIndex2=====',minIndex)
+      minIndex = arr[j] < arr[minIndex] ? j : minIndex; // 寻找到最小值，并保存
     }
-    jsLog('swap',i, minIndex);
     swap(arr, i, minIndex);
   }
   return arr;
