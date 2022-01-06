@@ -1,5 +1,6 @@
 /**
  * 插入排序
+ * 从右往左找最小
  * @param arr
  * @returns {*}
  */
@@ -16,6 +17,6 @@ function insertionSort(arr) {
   }
   return arr;
 }
-const test3 = generateRandomArray(5);
+const test3 = generateRandomArray(10);
 jsLog('原始',test3)
 jsLog('转换',insertionSort(test3))
