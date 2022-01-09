@@ -50,4 +50,4 @@ function mergeSort(arr) {
 }
 const test1 = generateRandomArray(10);
 jsLog('原始',test1)
-jsLog('转换',mergeSort(test1))
+jsLog('转换',mergeSort(test1,0,test1.length-1))
