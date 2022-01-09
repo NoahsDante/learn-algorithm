@@ -20,10 +20,12 @@ function heapSort(arr) {
     return;
   }
   // O(N*logN)
+  //   一个一个数加
 //		for (int i = 0; i < arr.length; i++) { // O(N)
 //			heapInsert(arr, i); // O(logN)
 //		}
   // O(N)
+  // 从最底开始 heapify
   for (let i = arr.length - 1; i >= 0; i--) {
     heapify(arr, i, arr.length);
   }
@@ -38,8 +40,9 @@ function heapSort(arr) {
   }
   return arr;
 }
+
 // arr[index]刚来的数，往上
-function heapInsert(arr,index) {
+function heapInsert(arr, index) {
   while (arr[index] > arr[(index - 1) / 2]) {
     swap(arr, index, (index - 1) / 2);
     index = (index - 1) / 2;
@@ -47,7 +50,7 @@ function heapInsert(arr,index) {
 }
 
 // arr[index]位置的数，能否往下移动
-function heapify(arr,index,heapSize) {
+function heapify(arr, index, heapSize) {
   let left = index * 2 + 1; // 左孩子的下标
   while (left < heapSize) { // 下方还有孩子的时候
     // 两个孩子中，谁的值大，把下标给largest
@@ -67,5 +70,5 @@ function heapify(arr,index,heapSize) {
 }
 
 const test1 = generateRandomArray(10);
-jsLog('原始',test1)
-jsLog('转换',heapSort(test1,))
+jsLog('原始', test1)
+jsLog('转换', heapSort(test1,))
