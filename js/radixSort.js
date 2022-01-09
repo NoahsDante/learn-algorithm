@@ -6,7 +6,7 @@ function radixSort(arr) {
   if (arr == null || arr.length < 2) {
     return;
   }
-  radixSort(arr, 0, arr.length - 1, maxbits(arr));
+  return radixFn(arr, 0, arr.length - 1, maxbits(arr));
 }
 
 function maxbits(arr) {
@@ -23,7 +23,7 @@ function maxbits(arr) {
 }
 
 // arr[L..R]排序  ,  最大值的十进制位数digit
-function radixSort( arr, L,  R, digit) {
+function radixFn(arr, L,  R, digit) {
   let radix = 10;
   let i = 0, j = 0;
   // 有多少个数准备多少个辅助空间
@@ -34,7 +34,7 @@ function radixSort( arr, L,  R, digit) {
     // count[1] 当前位(d位)是(0和1)的数字有多少个
     // count[2] 当前位(d位)是(0、1和2)的数字有多少个
     // count[i] 当前位(d位)是(0~i)的数字有多少个
-   let count = new Array(radix); // count[0..9]
+   let count = new Array(radix).fill(0); // count[0..9]
     for (i = L; i <= R; i++) {
       // 103  1   3
       // 209  1   9
@@ -53,6 +53,7 @@ function radixSort( arr, L,  R, digit) {
       arr[i] = help[j];
     }
   }
+  return arr;
 }
 
 function getDigit(x, d) {
