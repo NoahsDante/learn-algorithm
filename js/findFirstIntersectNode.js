@@ -122,6 +122,7 @@ function bothLoop( head1,  loop1,  head2,  loop2) {
     }
     return cur1;
   } else {
+    // 公用一个环 相交
     cur1 = loop1.next;
     while (cur1 != loop1) {
       if (cur1 == loop2) {
